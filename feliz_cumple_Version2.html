@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumple 🎂</title>
+
+<link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Inconsolata', monospace;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#out-all {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+div[id^="f"] {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  animation: fadeIn 0.6s ease-in;
+}
+
+div[id^="f"].active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes blink {
+  0%, 49%, 100% {
+    opacity: 1;
+  }
+  50%, 99% {
+    opacity: 0.3;
+  }
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: blink 2s infinite;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin: 15px 0;
+  color: #ffff00;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+.decidir {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.decidir div {
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 2px solid #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.decidir div:hover {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.decidir div:active {
+  transform: scale(0.95);
+}
+
+.img1 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, #ff006e, #fb5607, #ffbe0b, #8338ec);
+  border-radius: 20px;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 40px rgba(255, 0, 110, 0.6);
+}
+
+.afi {
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 2px solid #ff006e;
+  background: rgba(255, 0, 110, 0.1);
+  color: #ff006e;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 0, 110, 0.8);
+  margin-top: 30px;
+}
+
+.afi:hover {
+  background: rgba(255, 0, 110, 0.3);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+  transform: scale(1.05);
+}
+
+.afi:active {
+  transform: scale(0.95);
+}
+
+#ico {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #ffff00, #ff6600);
+  border-radius: 50%;
+  margin-bottom: 40px;
+  box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+#f8, #f9 {
+  display: none;
+}
+
+#f8.active, #f9.active {
+  display: flex;
+}
+
+#f10 {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin: 40px 0;
+  perspective: 1000px;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #8338ec, #ff006e);
+  border: 3px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(131, 56, 236, 0.6);
+}
+
+.box:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(131, 56, 236, 0.8);
+}
+
+.box:active {
+  transform: scale(0.95);
+}
+
+.ca1::before {
+  content: "1";
+  color: #ffff00;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+.ca2::before {
+  content: "2";
+  color: #ff006e;
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.8);
+}
+
+.ca3::before {
+  content: "3";
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+#f11 {
+  display: none;
+  margin: 30px 0;
+}
+
+#f11.active {
+  display: block;
+}
+
+.go {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #00ff00;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+.go:hover {
+  transform: scale(1.2);
+  color: #ffff00;
+}
+
+#f14 {
+  display: none;
+  margin-top: 20px;
+}
+
+#f14.active {
+  display: block;
+}
+
+.carta {
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 2px solid #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.carta:hover {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  transform: scale(1.05);
+}
+
+#f16, #f17 {
+  display: none;
+}
+
+#f16.active, #f17.active {
+  display: flex;
+}
+
+.ichigo {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1);
+  border-radius: 50%;
+  margin: 30px 0;
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+.anillo {
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 2px solid #ff1493;
+  background: rgba(255, 20, 147, 0.1);
+  color: #ff1493;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 20, 147, 0.8);
+  margin-top: 30px;
+}
+
+.anillo:hover {
+  background: rgba(255, 20, 147, 0.3);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+  transform: scale(1.05);
+}
+
+.marry {
+  cursor: pointer;
+  padding: 15px 30px;
+  border: 2px solid #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+  margin-top: 30px;
+}
+
+.marry:hover {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  transform: scale(1.05);
+}
+
+#f18, #f19 {
+  display: none;
+}
+
+#f18.active, #f19.active {
+  display: flex;
+}
+
+#f19 {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes confetti {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  animation: confetti 3s ease-out forwards;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .decidir div, .afi, .carta, .anillo, .marry {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  #f10 {
+    gap: 20px;
+  }
+
+  .box {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .img1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  #ico {
+    width: 120px;
+    height: 120px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="out-all">
+
+  <div id="f1">
+    <h1>¿hay aqui alguna cumpleañera?</h1>
+    <div class="decidir">
+      <div class="si">> si!</div>
+      <div class="no">> no</div>
+    </div>
+  </div>
+
+  <div id="f2">
+    <h1>¡no lo puedo creer!</h1>
+    <div class="decidir">
+      <div class="weno">> continúa... </div>
+    </div>
+  </div>
+
+  <div id="f3">
+    <h1>¡Si! eres tú. HELEN 😃🥳</h1>
+    <div class="decidir">
+      <div class="dale">> continúa.... </div>
+    </div>
+  </div>
+
+  <div id="f4">
+    <h3>¡VALE, VALE!</h3>
+    <h2>ummmm....</h2>
+    <div class="decidir">
+      <div class="rega">> ¿un regalo? 🎊✉️🥳 </div>
+    </div>
+  </div>
+
+  <div id="f5">
+    <h3>¡justamente! un regalo para ti</h3>
+    <h2>ahora, vamos a comenzar.</h2>
+    <div class="decidir">
+      <div class="ojo">> presióna aqui. </div>
+    </div>
+  </div>
+
+  <div id="f6">
+    <div class="img1"></div>
+    <h3>¡En tu dia especial</h3>
+    <h2>felicidades🥳🥳</h2>
+    <div class="afi">> Continuar.... </div>
+  </div>
+
+  <div id="f7">
+
+    <div id="ico"></div>
+
+    <div id="f8">
+      <h1>pide tus deseos 🎂</h1>
+      <div class="decidir">
+        <div class="salu">> ¿ya los pediste?🤔🫣</div>
+      </div>
+    </div>
+
+    <div id="f9">
+      <h2>pues.... se cumplirán!</h2>
+      <div class="decidir">
+        <div class="copy">> .... se cumplirán</div>
+      </div>
+    </div>
+
+    <div id="f10">
+      <div class="box ca1"></div>
+      <div class="box ca2"></div>
+      <div class="box ca3"></div>
+    </div>
+
+    <div id="f11">
+      <h3>tienes tres cofres delante tuyo, la 1 ESTÁ VACÍA!!😅🫢😂.</h3>
+      <h2>el orden es 1-3-2, recuerda dejar el del medio para el final. ¡ábrelos!</h2>
+    </div>
+
+    <div>
+      <span class="go">> ¿listos?</span>
+    </div>
+
+    <div id="f14">
+      <div class="carta">> vuelves a abrir las otras cajas.</div>
+    </div>
+
+  </div>
+
+  <div id="f15">
+
+    <div id="f16">
+      <h3>¡Oh, mira, dejé unas palabras!</h3>
+      <h2>Deberías leerlo..</h2>
+      <div class="anillo">> continúa..... </div>
+    </div>
+
+    <div id="f17">
+      <div></div>
+      <div class="ichigo"></div>
+      <h2>deseo que tus sueños se hagan realidad</h2>
+      <h2>Que la felicidad te acompañe y que esté lleno de momentos inolvidables</h2>
+      <div class="marry">> volver.</div>
+    </div>
+
+  </div>
+
+  <div id="f18">
+    <div id="f19">
+      <h3>¡pero si ya hemos llegado al final! Feliz cumple....Helen🎂😃</h3>
+      <h2>Atte Hilmer...</h2>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let currentScreen = 1;
+let openedBoxes = [];
+const boxOrder = [1, 3, 2]; // Orden correcto: 1-3-2
+
+function showScreen(screenNum) {
+  // Ocultar todas las pantallas
+  const allScreens = document.querySelectorAll('div[id^="f"]');
+  allScreens.forEach(screen => screen.classList.remove('active'));
+
+  // Mostrar la pantalla actual
+  const screen = document.getElementById(`f${screenNum}`);
+  if (screen) {
+    screen.classList.add('active');
+  }
+  currentScreen = screenNum;
+}
+
+function createConfetti() {
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.top = '-10px';
+    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    confetti.style.delay = Math.random() * 0.5 + 's';
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3500);
+  }
+}
+
+// Inicializar
+showScreen(1);
+
+// Event Listeners para f1
+document.querySelector('.si').addEventListener('click', () => {
+  createConfetti();
+  showScreen(2);
+});
+
+document.querySelector('.no').addEventListener('click', () => {
+  alert('¡Vamos, claro que eres cumpleañera! 🎉');
+  createConfetti();
+  showScreen(2);
+});
+
+// Event Listeners para f2
+document.querySelector('.weno').addEventListener('click', () => {
+  showScreen(3);
+});
+
+// Event Listeners para f3
+document.querySelector('.dale').addEventListener('click', () => {
+  createConfetti();
+  showScreen(4);
+});
+
+// Event Listeners para f4
+document.querySelector('.rega').addEventListener('click', () => {
+  showScreen(5);
+});
+
+// Event Listeners para f5
+document.querySelector('.ojo').addEventListener('click', () => {
+  createConfetti();
+  showScreen(6);
+});
+
+// Event Listeners para f6
+document.querySelector('.afi').addEventListener('click', () => {
+  showScreen(7);
+  setTimeout(() => {
+    document.getElementById('f8').classList.add('active');
+  }, 500);
+});
+
+// Event Listeners para f8
+document.querySelector('.salu').addEventListener('click', () => {
+  document.getElementById('f8').classList.remove('active');
+  document.getElementById('f9').classList.add('active');
+});
+
+// Event Listeners para f9
+document.querySelector('.copy').addEventListener('click', () => {
+  document.getElementById('f9').classList.remove('active');
+  document.getElementById('f10').style.display = 'flex';
+  document.getElementById('f11').classList.add('active');
+});
+
+// Event Listeners para las cajas
+const boxes = document.querySelectorAll('.box');
+boxes.forEach((box, index) => {
+  box.addEventListener('click', function() {
+    const boxNumber = index + 1;
+    
+    if (openedBoxes.includes(boxNumber)) {
+      return;
+    }
+
+    if (boxNumber === boxOrder[openedBoxes.length]) {
+      openedBoxes.push(boxNumber);
+      this.style.opacity = '0.5';
+      this.style.pointerEvents = 'none';
+
+      if (openedBoxes.length === 3) {
+        createConfetti();
+        setTimeout(() => {
+          document.getElementById('f10').style.display = 'none';
+          document.getElementById('f11').style.display = 'none';
+          document.querySelector('.go').style.display = 'none';
+          document.getElementById('f14').classList.add('active');
+        }, 500);
+      }
+    } else {
+      alert('¡Incorrecto! Recuerda: 1-3-2');
+    }
+  });
+});
+
+// Event Listener para el botón ">"
+document.querySelector('.go').addEventListener('click', () => {
+  // Este botón es solo visual en esta versión
+});
+
+// Event Listeners para f14
+document.querySelector('.carta').addEventListener('click', () => {
+  openedBoxes = [];
+  document.querySelectorAll('.box').forEach(box => {
+    box.style.opacity = '1';
+    box.style.pointerEvents = 'auto';
+  });
+  document.getElementById('f14').classList.remove('active');
+  document.getElementById('f10').style.display = 'flex';
+  document.getElementById('f11').classList.add('active');
+  document.querySelector('.go').style.display = 'block';
+});
+
+// Event Listeners para f16
+document.querySelector('.anillo').addEventListener('click', () => {
+  document.getElementById('f16').classList.remove('active');
+  document.getElementById('f17').classList.add('active');
+});
+
+// Event Listeners para f17
+document.querySelector('.marry').addEventListener('click', () => {
+  createConfetti();
+  document.getElementById('f15').style.display = 'none';
+  document.getElementById('f18').classList.add('active');
+  document.getElementById('f19').classList.add('active');
+});
+
+// Event Listener para volver desde f14 a cofres
+let boxesClicked = 0;
+// Si los tres cofres se abren correctamente
+setTimeout(() => {
+  document.addEventListener('allBoxesOpened', () => {
+    setTimeout(() => {
+      document.getElementById('f16').classList.add('active');
+    }, 2000);
+  });
+}, 0);
+</script>
+
+</body>
+</html>
